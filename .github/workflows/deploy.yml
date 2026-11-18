@@ -1,0 +1,64 @@
+# Builds this SvelteKit static site and deploys it to GitHub Pages.
+#
+# One-time setup: repo Settings -> Pages -> "Build and deployment" -> Source:
+# "GitHub Actions". The site then publishes at:
+#   https://<owner>.github.io/<repo>/   (project page), or your custom domain.
+#
+# Asset paths are relative, so the build works at the repo sub-path AND at a
+# custom-domain root without changing BASE_PATH. For a custom domain, add a
+# `static/CNAME` file containing the domain (e.g. honestly.dating).
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          # Waitlist/volunteer submissions -> SheetDB (Google Sheet). This URL is
+          # public (it ships in the client bundle), so it lives here, not a secret.
+          VITE_WAITLIST_ENDPOINT: 'https://sheetdb.io/api/v1/694e8ndlou2da'
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

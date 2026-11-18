@@ -1,0 +1,121 @@
+/*
+ * Design tokens for the Honestly marketing site.
+ * Mirrored from the Flutter app theme (lib/ui/theme/) so the site and app
+ * read as one brand. Keep these in sync with colors.dart / tokens.dart.
+ */
+:root {
+  /* --- Primary: sky blue (gradient top, links/buttons at dark end) --- */
+  --primary-50: #f0f9ff;
+  --primary-100: #d0f1f8;
+  --primary-200: #aae1fe;
+  --primary-300: #7fcdf4;
+  --primary-400: #5fb6dd;
+  --primary-500: #3d9bc7;
+  --primary-600: #2b7da8;
+  --primary-700: #246588;
+  --primary-800: #215470;
+  --primary-900: #1f465d;
+  --primary-950: #142d3d;
+
+  /* --- Accent: periwinkle (CTAs + highlights, used sparingly) --- */
+  --accent-50: #f1f4fd;
+  --accent-100: #e3e8fb;
+  --accent-200: #ccd5f7;
+  --accent-300: #a9b9f0;
+  --accent-400: #8a9ee6;
+  --accent-500: #6c84da;
+  --accent-600: #5168cc;
+  --accent-700: #4354b4;
+  --accent-800: #394692;
+  --accent-900: #333e74;
+  --accent-950: #212744;
+
+  /* --- Mint: gradient bottom + landscape hills --- */
+  --mint-50: #f4fffa;
+  --mint-100: #eafef5;
+  --mint-200: #cdf7e3;
+  --mint-300: #a2edcb;
+  --mint-400: #6eddae;
+  --mint-500: #43c793;
+  --mint-600: #2fa577;
+  --mint-700: #288462;
+  --mint-800: #246950;
+  --mint-900: #1f5643;
+  --mint-950: #0d3125;
+
+  /* --- Neutral: slate-teal (headings 800, body 600, borders) --- */
+  --neutral-50: #f6f9f9;
+  --neutral-100: #edf2f3;
+  --neutral-200: #dce5e7;
+  --neutral-300: #bccbcf;
+  --neutral-400: #8fa3a9;
+  --neutral-500: #6b8188;
+  --neutral-600: #4b5f65;
+  --neutral-700: #3e5055;
+  --neutral-800: #34464b;
+  --neutral-900: #283639;
+  --neutral-950: #162023;
+
+  --success-500: #22c55e;
+  --success-600: #16a34a;
+  --danger-100: #fee2e2;
+  --danger-200: #fecaca;
+  --danger-500: #ef4444;
+  --danger-600: #dc2626;
+  --danger-700: #b91c1c;
+
+  --white: #ffffff;
+
+  /* Page background: sky -> aqua -> mint, matching the app. */
+  --bg-gradient: linear-gradient(180deg, var(--primary-200) 0%, var(--primary-100) 42%, var(--mint-100) 100%);
+
+  /* --- Spacing (4px base, Tailwind names) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* --- Radius --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* --- Type scale --- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* --- Soft shadows --- */
+  --shadow-sm: 0 1px 2px rgba(52, 70, 75, 0.06);
+  --shadow-md: 0 6px 20px rgba(52, 70, 75, 0.08);
+  --shadow-lg: 0 16px 40px rgba(52, 70, 75, 0.12);
+  --shadow-xl: 0 28px 60px rgba(52, 70, 75, 0.16);
+
+  --font-sans: 'Rubik', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --container: 1120px;
+}
